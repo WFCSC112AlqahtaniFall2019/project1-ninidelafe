@@ -48,6 +48,22 @@ cin>>userInputRow;
 
 matrix.at(userInputRow-1).at(userInputCol-1)="X";
 
+// if loop- checks to see if the userInput and random generated number are the same and if they are then a
+// '*" will be placed in that spot and it will tell you that you sunk the battleship with only 1 attempt
+if (matrix.at(userInputRow-1).at(userInputCol-1)==matrix.at(rowRandom-1).at(colRandom-1)){
+    matrix.at(userInputRow-1).at(userInputCol-1)="*";
+    cout << "You sunk my battleship! On your first attempt. That's impressive!!"<<endl;
+    // for loop-prints the matrix
+    for (int i = 0; i < matrix.size(); i++) {
+        cout << "__________________" << endl;
+        for (int j = 0; j < matrix.at(i).size(); j++) {
+            cout << "|  " << matrix.at(i).at(j) << " |";
+        }
+        cout << endl;
+    }
+    cout << "__________________" << endl;
+}
+
 //while loop- tests to see if the userInput and the random generated number are the same and will continue until they are not
 while (matrix.at(userInputRow-1).at(userInputCol-1)!=matrix.at(rowRandom-1).at(colRandom-1)) {
     //if loop-tests to see if the userInput and the random generated number are the same, if they are not then the matrix
@@ -75,12 +91,12 @@ while (matrix.at(userInputRow-1).at(userInputCol-1)!=matrix.at(rowRandom-1).at(c
     }
     //if loop- checks to make sure the userInput and random generated number are the same and if they are then a
     // '*" will be placed in that spot and it will tell you that you sunk the battleship and on what number attempt it
-    // took you to simk the battleship.
+    // took you to sink the battleship.
     if (matrix.at(userInputRow - 1).at(userInputCol - 1) == matrix.at(rowRandom - 1).at(colRandom - 1)){
         matrix.at(userInputRow-1).at(userInputCol-1)="*";
         guess++;
         cout << "You sunk my battleship! You got it on try #" << guess << "!!"<<endl;
-        // for loop-prints the battleship
+        // for loop-prints the matrix
         for (int i = 0; i < matrix.size(); i++) {
             cout << "__________________" << endl;
             for (int j = 0; j < matrix.at(i).size(); j++) {
