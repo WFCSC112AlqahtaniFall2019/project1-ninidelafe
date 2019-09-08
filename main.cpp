@@ -18,9 +18,9 @@ int main() {
     vector<vector<string>> matrix(row,vec);
     int colRandom=0;//declares the variable to save the random generated number for column
     int rowRandom=0;//declares the variable to save the random generated number for row
-    int guess=0;//declares the variable for 
-    int userInputCol=0; // declares variables for the users inputs
-    int userInputRow=0;
+    int guess=0;//declares the variable for the number of guesses
+    int userInputCol=0; // declares variable for the users input for column
+    int userInputRow=0;// declares variable for the users input for row
 
     cout<<"Think of a location on the matrix below to attempt to sink my battleship."<<endl;
 
@@ -35,23 +35,26 @@ for (int i=0;i<matrix.size();i++){
 }
     cout<<"__________________"<<endl;
 
+//creates and stores the random numbers into the appropriate variables
 srand(time(0));
 colRandom= rand()% 3+1;
 rowRandom= rand()% 3+1;
 
-
-cout<<"What column do you want to choose?"<<endl; //asks the user for their inputs
+//asks the user for their column and row inputs and stores them appropriately
+cout<<"What column do you want to choose?"<<endl;
 cin>>userInputCol;
 cout<<"What row do you want to choose?"<<endl;
 cin>>userInputRow;
 
-
 matrix.at(userInputRow-1).at(userInputCol-1)="X";
 
+//while loop- tests to see if the userInput and the random generated number are the same and will continue until they are not
 while (matrix.at(userInputRow-1).at(userInputCol-1)!=matrix.at(rowRandom-1).at(colRandom-1)) {
-
+    //if loop-tests to see if the userInput and the random generated number are the same, if they are not then the matrix
+    // will print with an 'X' where the user guessed, then tells the user to try again and asks for another
+    // column and row until correct
     if (matrix.at(userInputRow - 1).at(userInputCol - 1) != matrix.at(rowRandom - 1).at(colRandom - 1)) {
-
+        //for loop prints the matrix with the userInput
         for (int i = 0; i < matrix.size(); i++) {
             cout << "__________________" << endl;
             for (int j = 0; j < matrix.at(i).size(); j++) {
@@ -70,10 +73,14 @@ while (matrix.at(userInputRow-1).at(userInputCol-1)!=matrix.at(rowRandom-1).at(c
 
         matrix.at(userInputRow-1).at(userInputCol-1)="X";
     }
+    //if loop- checks to make sure the userInput and random generated number are the same and if they are then a
+    // '*" will be placed in that spot and it will tell you that you sunk the battleship and on what number attempt it
+    // took you to simk the battleship.
     if (matrix.at(userInputRow - 1).at(userInputCol - 1) == matrix.at(rowRandom - 1).at(colRandom - 1)){
         matrix.at(userInputRow-1).at(userInputCol-1)="*";
         guess++;
         cout << "You sunk my battleship! You got it on try #" << guess << "!!"<<endl;
+        // for loop-prints the battleship
         for (int i = 0; i < matrix.size(); i++) {
             cout << "__________________" << endl;
             for (int j = 0; j < matrix.at(i).size(); j++) {
