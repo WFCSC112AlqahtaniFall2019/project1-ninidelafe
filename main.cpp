@@ -22,7 +22,11 @@ int main() {
     int userInputCol=0; // declares variable for the users input for column
     int userInputRow=0;// declares variable for the users input for row
 
-    cout<<"Think of a location on the matrix below to attempt to sink my battleship."<<endl;
+    cout<<"Welcome to the battleshio game!"<<endl<<"Instructions: When prompted select a column and row number between 1 and 3"<<endl;
+    cout<<"to place a marker on the matrix. You will be asked to repeat this until you successfully"<<endl;
+    cout<< "sink the battleship. Follow the rest of the instructions shown below."<<endl;
+    cout<<"Enjoy the game!"<<endl<<endl;
+    cout<<"Think of a location on this matrix below to attempt to sink my battleship."<<endl;
 
 
 //prints the original matrix for the user to visualize:
