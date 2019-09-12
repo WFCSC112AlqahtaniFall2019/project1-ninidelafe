@@ -135,6 +135,6 @@ if (matrix.at(userInputRow-1).at(userInputCol-1)==matrix.at(rowRandom-1).at(colR
         }
 
 }
-    
+
     return 0;
 }
